@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <p>You are logged in as a <strong>{{ role }}</strong>.</p>
+
+    <!-- Role-Specific Content -->
+    {% if role == 'patient' %}
+        <h2>Patient Dashboard</h2>
+        <p>View your medical records or update your profile.</p>
+        <a href="{{ url_for('view_records') }}">View Medical Records</a><br>
+        <a href="{{ url_for('update_profile') }}">Update Profile</a>
+
+    {% elif role == 'doctor' %}
+        <h2>Doctor Dashboard</h2>
+        <p>View patient records or add new records.</p>
+        <a href="{{ url_for('view_patients') }}">View Patients</a><br>
+        <a href="{{ url_for('add_record') }}">Add Medical Record</a>
+
+    {% elif role == 'hospital' %}
+        <h2>Hospital Dashboard</h2>
+        <p>Manage doctors and patients.</p>
+        <a href="{{ url_for('manage_doctors') }}">Manage Doctors</a><br>
+        <a href="{{ url_for('manage_patients') }}">Manage Patients</a>
+    {% endif %}
+
+    <br><br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

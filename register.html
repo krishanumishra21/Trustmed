@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST" action="{{ url_for('register') }}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="role">Role:</label>
+        <select id="role" name="role">
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+            <option value="hospital">Hospital</option>
+        </select><br><br>
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="http://127.0.0.1:3000/login.html">Login here</a></p>
+</body>
+</html>
